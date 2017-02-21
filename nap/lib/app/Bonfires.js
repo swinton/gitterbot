@@ -101,9 +101,6 @@ Bonfires = {
 
             var bfDataFiles = [
                 'basic-bonfires.json',
-                'intermediate-bonfires.json',
-                'advanced-bonfires.json',
-                'expert-bonfires.json',
             ]
 
             var allData = {
@@ -388,4 +385,3 @@ Bonfires.load();
 //})
 
 module.exports = Bonfires;
-
