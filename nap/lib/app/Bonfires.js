@@ -100,7 +100,6 @@ Bonfires = {
             // this.data = yaml.safeLoad(fs.readFileSync('./data/bonfires/basic-bonfires.yml', 'utf8'));
 
             var bfDataFiles = [
-                'basic-bonfires.json',
             ]
 
             var allData = {
