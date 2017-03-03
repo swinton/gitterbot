@@ -16,7 +16,7 @@ var _ = require('lodash-node');
 var AllRoomMessages = [
     {
         regex: /satellite/gim,
-        text: " > GitHub Satellite is great, and Training Day is greater!!",
+        text: " > GitHub is great, and Training Day is greater!!",
     },
   
     {
