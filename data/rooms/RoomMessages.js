@@ -42,11 +42,6 @@ var AllRoomMessages = [
         text: "> :bulb: to format code use backticks! ``` [more info](https://github.com/freecodecamp/freecodecamp/wiki/code-formatting)"
     },
     {
-        regex: /holler/i,
-        text: "> holler back!",
-        chance: 1   // only say this 50% of the time
-    },
-    {
         regex: /\bth?a?n?[xk]s?q?\b/gim,
         func: BotCommands.thanks
     }
