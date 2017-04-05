@@ -1,250 +1,128 @@
 **This project is a fork from dcscan/gitterbot, with changes made for GitHub Teacher**
-
-Things to note: 
-- This currently is set up to work for GitHubTeacher as the bot
-- It works in the gitter.im/demobot/test room
-- The messages that work come from a certain file that idk what it is 
-
-# GitterBot!
-
-This is a full featured bot for Gitter.
-Main features:
-- integration with github Wiki
-- search, find
-- wrapper for commands
-
-
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dcsan/gitterbot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
-
-The GBot is integrated into FreeCodeCamp
-
-Join us in Gitter to discuss!
-https://gitter.im/dcsan/gitterbot
-
-# Introducing GitterBot!
-
-GitterBot is a full featured bot for Gitter.im First developed to integrate with the chatrooms [for FreeCodeCamp, the largest online bootcamp in the world,](https://twitter.com/FreeCodeCamp/status/627338604134559744) where he supports more than 15,000 users in the main chatroom.
-
-### Github Wiki Search
-
-You can search for articles in a projects github wiki![](http://dcsan.github.io/gitterbot/images/anims/find.gif)
-
-### Share wiki summaries in chat
-
-Use `explain` to pull a wiki summary right into the chat:![](http://dcsan.github.io/gitterbot/images/anims/explain.gif)
-
-### Points system
-
-Allow your users to send points to each other to say 'thanks @friend'![](http://dcsan.github.io/gitterbot/images/anims/points.gif)
-
-### Fixed messages
-
-Based on scannable expressions, send messages into the chat.
-
-### Extensible
-
-Custom functions can easily be added. Check the [System overview](https://github.com/dcsan/gitterbot#system-overview)  
- or contact [RIKAI Labs](mailto:dc@rikai.co).
-
-## Installation instructions
-
-To run GitterBot, you need [Node.js](https://nodejs.org/) before downloading the app.
-
-
-### Mac / Linux
-
-- To install Node, [follow the instructions here](http://blog.teamtreehouse.com/install-node-js-npm-mac)
-
-- To make your file changes update the local server automatically, install nodemon (you may need sudo)
-
-        sudo npm install -g nodemon
-
-- To download the app, clone the repository the bot is in:
-
-        git clone git@github.com:dcsan/gitterbot.git
-
-- Run the following commands to run the app:
-
-        cd gitterbot
-        cd nap
-        cp dot-EXAMPLE.env dot.env
-        nodemon app.js
-
-- That's it! The app should be running at [http://localhost:7891](http://localhost:7891).
-
-You can now chat to your gitterbot via Gitter at
-[https://gitter.im/demobot/test](https://gitter.im/demobot/test)
-
-
-### Windows
-
-To install Node.js on Windows, [follow these instructions](http://blog.teamtreehouse.com/install-node-js-npm-windows).
-
-- To make your file changes update the local server automatically, install nodemon in an administrator console.
-
-        npm install -g nodemon
-
-
-- To download the app, clone the repository the bot is in:
-
-        git clone https://github.com/dcsan/gitterbot.git
-
--  Run the following commands to run the app:
-
-        cd gitterbot
-        cd nap
-        ren dot-EXAMPLE.env dot.env
-        nodemon app.js
-
-- That's it! The app should be running at [http://localhost:7891](http://localhost:7891).
-
-You can now chat to your gitterbot via Gitter at
-[https://gitter.im/demobot/test](https://gitter.im/demobot/test)
-
-
-
-# Getting your own appID
-The `dot.env` file you copied above contains login info. This is using shared "demobot" account so you may find yourself in a chatroom with other people using the same ID!
-
-To setup this up and use your own gitter login info, you should create your own Gitter API key on their developer site, and replace the info in that `.env` file. Get your own API keys for gitter from: [https://developer.gitter.im/apps](https://developer.gitter.im/apps)
-
-For more settings info, checkout the `AppConfig.js` and `RoomData.js` files. These define which rooms the bot will listen in to. You can ping us in the Dev Chatroom if you have problems [gitterbot chatroom](https://gitter.im/dcsan/gitterbot) .
-
-
-# Running tests
-
-There are other commands in `bin` for running tests with the right config files etc
-To run the tests with the right configs
-
-    $ bin/test.sh
-
-
-# Wiki Content
-The wiki content is pulled in from FCC's wiki using a git submodule. But then we just copy it and commit it back to the main app as submodules are nasty to deal with on production servers.
-
-    bin/wiki-update.sh
-
-
-# System Overview
-
-### data/RoomData.js
-The list of rooms your bot is going to join.
-Very starting your own bot, create a test room to enter and debug with.
-This needs to be changed so you would only join your own rooms, otherwise developers will get into a situation where everyone is joining the same rooms and the bots go crazy talking to each other!
-
-### lib/bot/BotCommands.js
-This is where you add things that the bot can do. Some commands are broken into separate files such as `cmds/thanks` and `cmds/about`.
-Each command gets a `input` which is a blob of data including what the user entered, and a bot instance.
-
-### KBase.js
-The Knowledge base. This is an interface to all the data in the wiki.
-
-
-### RoomMessages.js
-
-This is for static messages that are fired based on regex matches. If you just want to add some basic responses, this is the place to edit.
-
-### How to add a new Bot Command
-
-Look at BotCommands `echo` function. This is an example of a command being called. Anytime a user types a line starting with `echo` that will get passed to this function in input.
-
-```js
-    echo: function(input, bot) {
-        var username = input.message.model.fromUser.username;
-        return "@" + username + " said: " + input.message.model.text;
-    },
+# Build a Bot Workshop
+
+In this 40 minute session, you'll fork an existing chatbot and get it up and running within minutes. But, this is more than just a glorified demo. 
+
+In addition to **a functional chat bot**, you'll walk away with detailed playbooks of **advanced chatops functionality** so you can implement the chat bot in **your own chat environment**.
+
+![bearbot](http://www.robotshop.com/blog/en/files/teddy-bear-robot-300x180.jpg)
+
+Times:
+- 9:30-10:30
+- 10:45-11:45
+- 13:00-14:00
+- 14:15-15:15
+Planner: @migarjo & @brianamarie
+Facilitator: @mimgarjo & @brianamarie
+
+### Tools
+
+Tool | Used for
+--- | ---
+[GitHub](https://github.com) (Please log in now) | To grab the code
+[Glitch](https://glitch.com) (Please login with GitHub now) | A temporary server for your chat bot
+[Gitter room](https://gitter.im/githubteachergitterbot/Lobby) (Please join room now, authenticate with GitHub) | To interact with your chatbot
+[One shared bot user account](https://github.com/billyyumyum2x2) | The account logged in to Gitter, authenticated via Glitch app, responding to messages :robot: 
+
+## Part 1: Steps for Getting Started
+1. Fork the [githubteacher/gitterbot repository](https://github.com/githubteacher/gitterbot)
+2. In Glitch, import your fork of the githubteacher/gitterbot repository
+  - Click the title of the app on the top left
+  - Select 'Advanced Options'
+  - Select 'Import from GitHub' and type the name of your fork, `USERNAME/gitterbot`
+  - **Note: Any changes made in Glitch will not automatically be made in your fork. The steps are similar to importing, but instead select 'Export to GitHub'.**
+3. In Glitch, replace the contents of the `.env` file with:
+  ```
+  SERVER_ENV=demobot
+  GITTER_USER_TOKEN=92123753cc1ec6e60bd0ca3e7b87b35bc38ca4d3
+  FCC_API_KEY=TESTAPIKEY
+  GITTER_APP_KEY=63ece8ac0eeed9b17b1cc9867f65d4857ec6e5fc
+  GITTER_APP_SECRET=9026e3b3a74357035ee15a9591f31b2de5cfd3a6
+  GITTER_APP_REDIRECT_URL=http://localhost:7891/login/callback
+  LOG_LEVEL=10
+  PORT=7891
+  ```
+4. Join [the shared gitter chat room](https://gitter.im/githubteachergitterbot/Lobby). (You will need a Gitter account, which you can create with your GitHub account). You can test this by saying something that the bot is already looking for, like "satellite". 
+
+## Part 2: Pick Your Own Adventure
+Mix and match from the following activities. It doesn't matter if you do none of them or all of them, or what order you do them in. Each activity is independant of the others and is a way to fill out functionality of the bot for your specific use. If you don't have time to get to everything today, don't worry! You still have all of the instructions on your fork. 
+
+### Get your own bot instead of our default bot
+- Create a GitHub account for the new bot.
+- Sign that account into Gitter and join whichever chat rooms you'd like it to be active in.
+- Go to `https://developer.gitter.im/docs/welcome` and click "Sign in". You'll be given a new API token. 
+- Replace the GITTER_USER_TOKEN of the `.env` file with this new token. 
+
+### Change the chatroom for the bot 
+_Note: This will only work if you've created your own bot account._
+- Change code in `data/RoomData.js`
+- The code that tells the bot to join [our chat room](https://gitter.im/githubteachergitterbot/Lobby?source=orgpage) is on line 39.
 ```
-
-The input object contains `keyword` and `params` fields. If you type `echo this` you'll get
-
-```js
-//input
-{   
-    keyword: 'echo',
-    params: 'this'
-}
+    demobot: [{
+        title: "githubteacher's GitterBot room",
+        name: "githubteachergitterbot/lobby",
+        icon: "star",
+        topics: ["getting started"]
+    }],
 ```
+- Change the code there, or add your code to the block in lines 24-32. 
+- Join the new room manually while logged in as your bot account.
 
-From any command you just return the new string you want to output. 
-So you can add new commands with this knowledge.
+### Add new bot messages
+- **PROTIP/Disclaimer:** _**Do not include the phrase that triggers a message in the response message.** You will find unfortunate behaviors, which may include some accidental looping that may get the bot account banned. I may or may not know from experience._
+- The basic room messages are stored in `data/rooms/RoomMessages.js`.
+- So far, our bot is best at watching for incoming chat messages, and uses regex to know when to respond. 
+- Test out the current messages (and your regex knowledge) to see what our Bot can say:
+  - `/satellite/gim`
+  - `/githubteacher/gim`
+  - `/botx/i`
+  - `/\btroll\b/i`
+  - `/allyourbase/`
+- It's easy to add simple, static messages here. This is the point of contact for more interactive messages, too. 
 
-### More detail on how commands are found and called
+### Make the bot persistant with a Heroku Server
+- Make a Heroku account and log in
+- Create a project from the same existing fork
+- In `app.js`, comment out line 7: `require('dotenv').config({path: '.env'});`
+- In Heroku under settings, choose a buildpack of `heroku/nodejs`
+- Also in settings, add config variables to equal those that were in your `.env` file on GoMix. 
+- Deploy the app.
 
-In GBot.js
-
-        if (input.command) {
-            // this looks up a command and calls it
-            output = BotCommands[input.keyword](input, this);
-        } else {
-
-BotCommands is a list of functions, eg
-
-    BotCommands.thanks = function() { ... }
-
-where `input.keyword` is `thanks` then
-
-`BotCommands[input.keyword]` is like saying `BotCommands.thanks()`
-
-so then the params get also added in `(input, this)` so its
-
-
-    BotCommands[input.keyword](input, this);
-    //becomes
-    BotCommands.thanks(input, bot);
-
-All of the botCommands expect these two params eg in thanks.js
-
-    var commands = {
-        thanks: function (input, bot) {
+### Connect the bot to a repository's GitHub wiki
+- This is done using submodules and scripts. The submodules are **not** included in this repository, but the scripts and directions are.
+- The Bot functionality for calling wiki pages in this format already built in 
+- To connect your own wiki, add the repository with said wiki as a submodule of this repository.
+- Use the script in `bin/wiki-update.sh` to update the file structure of this repository. This script will require updating based on your submodule's name and placement within your local repository. 
+- Files will be added to  match a structure like `data/wiki/ARTICLE.md`, and the bot already knows to search those files with the `wiki` message.
 
 
-In `RoomMessages.js` we also have a table of regex and matching functions, and may switch all to just use this method in future. Would you like to help?
+### :construction: WIP :construction: Give the bot some persistent data, like `.rem things` 
+? Maybe adapter that would interact with database, and have existing database set up for this example, with instructions on how to change the database and interactions
 
-```
-    {
-        regex: /\bth?a?n?[xk]s?q?\b/gim,
-        func: BotCommands.thanks
-    }
-```
+### :construction: WIP :construction: API adapter
+? Adapter that would abstract away steps of API, user would just pick API and what strings to search for it
 
+### :construction: WIP :construction: Longer strings of conversation, remembering past user things
+?
 
-## environment notes
+### :construction: WIP :construction: Have the bot work in Slack instead of Gitter (Or...dream big...why not also integrate to Facebook or any other messaging platform?) 
+? Have functionality for both, put the functional chat code in a place that could be accessed by the slack or gitter code 
 
-### wiki data
-we use git submodules for some wiki data. to get these submodules you would do:
+## Part 3: Dream Big for Your Bot
+Chatbot functionality is limited only by imagination. What are some dreams for chatbots? What are some cool functionalities we could show or feature without delving into 'how'? You can sort your dreams for your bot into 3 general tiers. Here are some of our ideas:
 
-    git submodule init
-    git submodule update
+#### Tier 1: Static interaction
+- When I say "hey", the bot says "ho!"
+- Meeting reminders (with links to the calls!)
+- FAQ ready to go
 
+#### Tier 2: User inputs something, bot searches static information to give specific information
+- Get the weather at a designated location
+- Get the location of a specific user
+- .gif display, llike `/giphy chatbot`
 
-### ES6 and iojs
-
-We downgraded the app to use basic node, so it should run even without iojs.
-But its recommended to run on iojs rather than the older node (until they merge the projects)
-To do this:
-
-
-```bash
-# ubuntu
-sudo apt-get upgrade
-sudo apt-get install build-essential
-```
-
-we're using n to update node [article](http://davidwalsh.name/upgrade-nodejs)
-We use n to manage iojs and node:
-```
-sudo npm install -g n
-sudo n io latest
-iojs -v
-    // should be at least v2.4.0
-```
-
-# Contributing
-have a look at the [HelpWanted](https://github.com/dcsan/gitterbot/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)  label issues and consider making some first steps!
-the labels, P1 = priority one, and 'S' means a small task, so good places to start.
-https://waffle.io/dcsan/gitterbot
-
-
-# Chat to us!
-
-Ping me @dcsan in the [gitterbot chatroom](https://gitter.im/dcsan/gitterbot) if you get stuck.
+#### Tier 3: User orders bot to do something, bot actually makes a change to something
+- Onboarding 
+- Deploy
+- Social conventions, like thanking others by giving them sparkles
+- Scheduling bot
