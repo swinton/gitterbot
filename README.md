@@ -15,6 +15,8 @@ Times:
 Planner: @migarjo & @brianamarie
 Facilitator: @mimgarjo & @brianamarie
 
+## Prerequisites
+
 ### Tools
 
 Tool | Used for
