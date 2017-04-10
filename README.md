@@ -27,10 +27,12 @@ Tool | Used for
 [One shared bot user account](https://github.com/billyyumyum2x2) | The account logged in to Gitter, authenticated via Glitch app, responding to messages :robot: 
 
 ## Part 1: Steps for Getting Started
-1. Fork the [githubteacher/gitterbot repository](https://github.com/githubteacher/gitterbot)
-2. In Glitch, import your fork of the githubteacher/gitterbot repository
+1. Fork the [satelliteworkshops/gitterbot repository](https://github.com/satelliteworkshops/gitterbot)
+2. In [Glitch](https://glitch.com), import your fork of the githubteacher/gitterbot repository
+  - Click 'Edit Code'
   - Click the title of the app on the top left
   - Select 'Advanced Options'
+  - By 'Import from GitHub', click 'Grant Access' and allow the app the proper permissions
   - Select 'Import from GitHub' and type the name of your fork, `USERNAME/gitterbot`
   - **Note: Any changes made in Glitch will not automatically be made in your fork. The steps are similar to importing, but instead select 'Export to GitHub'.**
 3. In Glitch, replace the contents of the `.env` file with:
@@ -48,6 +50,27 @@ Tool | Used for
 
 ## Part 2: Pick Your Own Adventure
 Mix and match from the following activities. It doesn't matter if you do none of them or all of them, or what order you do them in. Each activity is independant of the others and is a way to fill out functionality of the bot for your specific use. If you don't have time to get to everything today, don't worry! You still have all of the instructions on your fork. 
+
+### Add new bot messages
+- **PROTIP/Disclaimer:** _**Do not include the phrase that triggers a message in the response message.** You will find unfortunate behaviors, which may include some accidental looping that may get the bot account banned. I may or may not know from experience._
+- The basic room messages are stored in `data/rooms/RoomMessages.js`.
+- So far, our bot is best at watching for incoming chat messages, and uses regex to know when to respond. 
+- Test out the current messages (and your regex knowledge) to see what our Bot can say:
+  - `/satellite/gim`
+  - `/githubteacher/gim`
+  - `/botx/i`
+  - `/\btroll\b/i`
+  - `/allyourbase/`
+- It's easy to add simple, static messages here. This is the point of contact for more interactive messages, too.
+- Add a new message and trigger that will be unique to your bot. Not sure what to type?
+  - `/fruit/gim` and have the bot respond with some fruit
+  - `/movie/gim`, responding with a movie
+  - `/USERNAME/gim`, responding with "That person is AWESOME."
+- This change doesn't automatically restart the server. To do so:
+  - Go back to the `.env` file
+  - Add an empty line break at the end of the file
+  - WHY: This starts the server again, and now your message will be reachable by the bot
+ - Test this out in the [shared chat room](https://gitter.im/githubteachergitterbot/Lobby). 
 
 ### Get your own bot instead of our default bot
 - Create a GitHub account for the new bot.
@@ -69,18 +92,6 @@ _Note: This will only work if you've created your own bot account._
 ```
 - Change the code there, or add your code to the block in lines 24-32. 
 - Join the new room manually while logged in as your bot account.
-
-### Add new bot messages
-- **PROTIP/Disclaimer:** _**Do not include the phrase that triggers a message in the response message.** You will find unfortunate behaviors, which may include some accidental looping that may get the bot account banned. I may or may not know from experience._
-- The basic room messages are stored in `data/rooms/RoomMessages.js`.
-- So far, our bot is best at watching for incoming chat messages, and uses regex to know when to respond. 
-- Test out the current messages (and your regex knowledge) to see what our Bot can say:
-  - `/satellite/gim`
-  - `/githubteacher/gim`
-  - `/botx/i`
-  - `/\btroll\b/i`
-  - `/allyourbase/`
-- It's easy to add simple, static messages here. This is the point of contact for more interactive messages, too. 
 
 ### Make the bot persistant with a Heroku Server
 - Make a Heroku account and log in
