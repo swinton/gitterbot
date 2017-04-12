@@ -20,8 +20,20 @@ var AllRoomMessages = [
     },
   
     {
-        regex: /githubteacher/gim,
-        text: " > This is running from a GOMIX app!",
+        regex: /USERNAME/gim,
+        text: " > That person is awesome",
+    },
+    {
+        regex: /fruit/gim,
+        text: " > My favorite fruits are apples and grapes.",
+    },
+    {
+        regex: /movie/gim,
+        text: " > My favorite movie is The Wizard of Oz",
+    },
+    {
+        regex: /lunch/gim,
+        text: " > I want a peanut butter and jelly sandwich for lunch today.",
     },
 
     {
