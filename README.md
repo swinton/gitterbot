@@ -53,22 +53,24 @@ Mix and match from the following activities. It doesn't matter if you do none of
 
 ### Add new bot messages
 - **PROTIP/Disclaimer:** _**Do not include the phrase that triggers a message in the response message.** You will find unfortunate behaviors, which may include some accidental looping that may get the bot account banned. I may or may not know from experience._
-- The basic room messages are stored in `data/rooms/RoomMessages.js`.
-- So far, our bot is best at watching for incoming chat messages, and uses regex to know when to respond. 
-- Test out the current messages (and your regex knowledge) to see what our Bot can say:
-  - `/satellite/gim`
-  - `/githubteacher/gim`
-  - `/botx/i`
-  - `/\btroll\b/i`
-  - `/allyourbase/`
-- It's easy to add simple, static messages here. This is the point of contact for more interactive messages, too.
-- Add a new message and trigger that will be unique to your bot. Not sure what to type?
-  - `/fruit/gim` and have the bot respond with some fruit
-  - `/movie/gim`, responding with a movie
-  - `/USERNAME/gim`, responding with "That person is AWESOME."
-- This change doesn't automatically restart the server. To do so:
-  - Go back to the `.env` file
-  - Add an empty line break at the end of the file
+1. **Find the existing message code**
+  - The basic room messages are stored in `data/rooms/RoomMessages.js`.
+  - So far, our bot is best at watching for incoming chat messages, and uses regex to know when to respond. 
+  - Test out the current messages (and your regex knowledge) to see what our Bot can say:
+    - `/satellite/gim`
+    - `/githubteacher/gim`
+    - `/botx/i`
+    - `/\btroll\b/i`
+    - `/allyourbase/`
+  - It's easy to add simple, static messages here. This is the point of contact for more interactive messages, too.
+2. **Add a new message and trigger that will be unique to your bot.**
+  - If we all write a message for the same trigger, and try that trigger in the chat room, every bot will respond. 
+  - Change line 23, replacing `USERNAME` with your own username. 
+  - Change the response to be whatever you'd like, maybe something like "I heard they're the best tennis player in the country."...or something more true, perhaps. 
+3. **Refresh the server**
+  - This change doesn't automatically restart the server. To do so:
+    - Go back to the `.env` file
+    - Add an empty line break at the end of the file
   - WHY: This starts the server again, and now your message will be reachable by the bot
  - Test this out in the [shared chat room](https://gitter.im/githubteachergitterbot/Lobby). 
 
